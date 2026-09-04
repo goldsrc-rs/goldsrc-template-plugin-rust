@@ -2,13 +2,7 @@ use goldsrc::prelude::*;
 
 pub struct MyPlugin;
 
-#[plugin(
-    name = "{{project-name}}",
-    version = "0.1.0",
-    author = "{{authors}}",
-    description = "GoldSrc plugin written in Rust",
-    url = "https://github.com/goldsrc-rs/goldsrc-rs"
-)]
+#[plugin]
 impl MyPlugin {
     #[on_load]
     fn init() {
