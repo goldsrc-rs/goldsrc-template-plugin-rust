@@ -38,7 +38,7 @@ jobs:
         with:
           tool: cargo-generate
       - name: Test generate plugin from template
-        run: cargo generate --path . --name test-plugin --silent
+        run: cargo generate --path ${{ github.workspace }} --destination ${{ runner.temp }} --name test-plugin --silent
       - name: Verify generated plugin compiles
-        working-directory: test-plugin
+        working-directory: ${{ runner.temp }}/test-plugin
         run: cargo clippy --target wasm32-unknown-unknown -- -D warnings
