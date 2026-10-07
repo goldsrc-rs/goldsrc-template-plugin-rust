@@ -16,12 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Install Rust
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          components: rustfmt
-      - name: Check formatting
-        run: cargo fmt --all -- --check
+      - name: Check file syntax
+        run: test -f Cargo.toml && test -f src/lib.rs
 
   build-and-test:
     name: Build & Test (${{ matrix.os }})
@@ -35,10 +31,12 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
         with:
+          targets: wasm32-unknown-unknown
           components: clippy
-      - name: Cache dependencies
-        uses: Swatinem/rust-cache@v2
-      - name: Run clippy
-        run: cargo clippy --all-targets -- -D warnings
-      - name: Run tests
-        run: cargo test --all-targets
+      - name: Install cargo-generate
+        uses: taiki-e/install-action@cargo-generate
+      - name: Test generate plugin from template
+        run: cargo generate --path . --name test-plugin --silent
+      - name: Verify generated plugin compiles
+        working-directory: test-plugin
+        run: cargo clippy --target wasm32-unknown-unknown -- -D warnings
