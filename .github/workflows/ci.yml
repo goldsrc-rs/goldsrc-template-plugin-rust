@@ -34,7 +34,9 @@ jobs:
           targets: wasm32-unknown-unknown
           components: clippy
       - name: Install cargo-generate
-        uses: taiki-e/install-action@cargo-generate
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-generate
       - name: Test generate plugin from template
         run: cargo generate --path . --name test-plugin --silent
       - name: Verify generated plugin compiles
