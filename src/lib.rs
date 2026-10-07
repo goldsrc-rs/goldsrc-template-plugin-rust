@@ -23,7 +23,7 @@ impl MyPlugin {
     )]
     fn handle_cmd(player: Player) {
         let name = player.name().unwrap_or_else(|| "Player".to_string());
-        player.print_center(&format!("Hello, {name}!"));
-        player.print_chat(&format!("^4[{{project-name}}]^1 Welcome, ^3{name}!"));
+        player.print_center(format!("Hello, {name}!"));
+        player.print_chat(format!("^4[{{project-name}}]^1 Welcome, ^3{name}!"));
     }
 }
