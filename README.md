@@ -17,15 +17,18 @@ Official GitHub starter template for writing safe, modern GoldSrc engine plugins
 ## Getting Started
 
 ### 1. Using GitHub Web Interface
+
 Click the green **"Use this template"** button at the top of the repository to generate your new plugin repository.
 
 ### 2. Using `cargo-generate`
+
 ```bash
 cargo generate goldsrc-rs/goldsrc-template-plugin-rust --name my_awesome_plugin
 cd my_awesome_plugin
 ```
 
 ### 3. Using GoldSrc.rs CLI
+
 ```bash
 goldsrc new my_awesome_plugin --template plugin-rust
 ```
@@ -39,6 +42,7 @@ cargo build --release
 ```
 
 The output artifacts will be located in:
+
 - Linux: `target/release/lib<plugin_name>.so`
 - Windows: `target/release/<plugin_name>.dll`
 
@@ -46,7 +50,7 @@ The output artifacts will be located in:
 
 Licensed under either of:
 
-- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
-- MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or <http://www.apache.org/licenses/LICENSE-2.0>)
+- MIT license ([LICENSE-MIT](LICENSE-MIT) or <http://opensource.org/licenses/MIT>)
 
 at your option.
